@@ -85,7 +85,7 @@ def main(screen, width, height, diag, rows=20):
                 if event.key == pygame.K_SPACE and start and end:
                     for row in board:
                         for node in row:
-                            node.set_neighbors(board, rows, diags=True)
+                            node.set_neighbors(board, rows, diags=diag)
                     agent = A_Star(board, lambda: draw_board(screen, board, rows, rows, width, height), diag=diag)
                     agent.find(start, end)
 
@@ -98,5 +98,5 @@ if __name__ == "__main__":
     else:
         diag = False
     rows = input("How many rows would you like? \n")
-    if diag and rows:
+    if choice and rows:
         main(SCREEN, WIDTH, HEIGHT, diag, rows=int(rows))
